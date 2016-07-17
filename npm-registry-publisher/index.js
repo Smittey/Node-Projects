@@ -73,14 +73,14 @@ else
 function walk(currentDirPath) 
 {
     fs.readdir(currentDirPath, function (err, files) {
-        if (err) 
+		if (err) 
             throw new Error(err);
 
         files.forEach(function (name) {
             filePath = path.join(currentDirPath, name);
             stat = fs.statSync(filePath);
 			
-            if (stat.isFile()) 
+			if (stat.isFile()) 
 			{
 				fileName = path.basename(filePath)
 				
