@@ -28,10 +28,21 @@ if(process.argv.indexOf("-d") != -1)
     directory = process.argv[process.argv.indexOf("-d") + 1]; 
 	console.log("Traversing: " + directory);
 }
+else if(process.argv.indexOf("--directory") != -1)	
+{
+    directory = process.argv[process.argv.indexOf("--directory") + 1]; 
+	console.log("Traversing: " + directory);
+}
 
 if(process.argv.indexOf("-r") != -1)
 {
     registry = process.argv[process.argv.indexOf("-r") + 1]; 
+	cmd += " --registry " + registry;
+	console.log("Using registry: " + registry);
+}
+else if(process.argv.indexOf("--registry") != -1)
+{
+    registry = process.argv[process.argv.indexOf("--registry") + 1]; 
 	cmd += " --registry " + registry;
 	console.log("Using registry: " + registry);
 }
@@ -50,7 +61,7 @@ else
 
 if(directory != undefined)
 {
-	walk(directory);
+	//walk(directory);
 }
 else
 {
