@@ -22,3 +22,5 @@ Usage: example [options]
 `node index.js -d C:\dir\to\node\project\`
 
 `node index.js -d C:\dir\to\node\project\ -r http://localhost:8081/nexus/content/repositories/npm/`
+
+`node index.js --directory C:\dir\to\node\project\ --registry http://localhost:8081/nexus/content/repositories/npm/`

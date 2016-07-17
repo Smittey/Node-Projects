@@ -61,7 +61,7 @@ else
 
 if(directory != undefined)
 {
-	//walk(directory);
+	walk(directory);
 }
 else
 {
