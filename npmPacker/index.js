@@ -1,3 +1,14 @@
+ /*************************************************************************
+ *
+ * @description
+ * Node.js script which traverses a specified directory looking for node 
+ * modules. For every module found it publishes it to your registry.
+ * 
+ * @author
+ * Andy Smith, 2016
+ *
+ *************************************************************************/
+
 var fs = require( 'fs' );
 var path = require( 'path' );
 const exec = require('child_process').exec;
