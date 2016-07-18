@@ -16,11 +16,9 @@
  var directory;
  var registry = "";
 
- var run;
+ var run, filePath, stat, fileName;
  var cmd = "npm publish";
- var filePath;
- var stat;
- var fileName;
+
 
  if (process.argv.indexOf("-d") != -1) {
  	directory = process.argv[process.argv.indexOf("-d") + 1];
@@ -67,22 +65,22 @@
  			stat = fs.lstatSync(filePath);
 
  			if (stat.isFile()) {
- 				fileName = path.basename(filePath)
+ 				fileName = path.basename(filePath);
 
- 					if (fileName == "package.json") {
- 						console.log("Found module at: " + currentDirPath);
- 						run = exec(cmd, {
- 								cwd : currentDirPath
- 							}, function (err, stdout, stderr) {
+ 				if (fileName == "package.json") {
+ 					console.log("Found module at: " + currentDirPath);
+ 					run = exec(cmd, {
+ 							cwd : currentDirPath
+ 						}, function (err, stdout, stderr) {
 
- 								if (stdout)
- 									console.log(stdout);
- 								if (err)
- 									console.log(err);
- 								if (stderr)
- 									console.log(stderr);
- 							});
- 					}
+ 							if (stdout)
+ 								console.log(stdout);
+ 							if (err)
+ 								console.log(err);
+ 							if (stderr)
+ 								console.log(stderr);
+ 						});
+ 				}
  			} else if (stat.isDirectory()) {
  				walk(filePath);
  			}
